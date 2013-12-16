@@ -10,7 +10,7 @@ function updateDiffisplay (diff) {
 }
 
 function updateVersionDisplay (module) {
-  var currentRev = dynoSrc.getRevision(module),
+  var currentRev = dynoSrc.getVersion(module),
       tr = document.querySelector('.' + module),
       versionTd = tr.querySelector('.version');
 
@@ -25,7 +25,7 @@ var modules = ['foo', 'bar', 'derp'],
     reload = document.querySelector('.btn');
 
 modules.forEach(function (module) {
-  var currentRev = dynoSrc.getRevision(module),
+  var currentRev = dynoSrc.getVersion(module),
       select = document.querySelector('.' + module + ' select');
 
   if (currentRev) {
@@ -34,7 +34,7 @@ modules.forEach(function (module) {
   }
 
   select.addEventListener('change', function (e) {
-    dynoSrc.fetch(module, e.target.value, function (moduleSrc, diff) {
+    dynoSrc.load(module, e.target.value, function (moduleSrc, diff) {
       updateVersionDisplay(module);
       updateDiffisplay(diff);
     });

@@ -43,7 +43,8 @@ dynoSrc.assets({
   },
   'jquery': {
     head: '1.9.1',
-    source: 'asset'
+    source: 'asset',
+    differ: 'vcdiff'
   },
   'backbone-min': {
     head: '1.0.0',
@@ -111,7 +112,8 @@ app.get('/', function (req, res) {
 app.get('/testdrive', function (req, res) {
   res.render('testdrive.html', {
     title: 'Test Drive',
-    cache: false
+    cache: false,
+    dynoSrc: dynoSrc.getClientLib()
   });
 });
 
