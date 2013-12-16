@@ -102,6 +102,7 @@ app.get('/', function (req, res) {
     res.render('home.html', {
       title: 'Home',
       patches: patches,
+      dynoSrc: dynoSrc.getClientLib(),
       cache: false
     });
   });

@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block js_head %}
-<script src="/dynoSrc/dynoSrc.io.js"></script>
+{{ dynoSrc | safe }}
 
 {% for patch in patches %}
   {{ patch | safe }}
